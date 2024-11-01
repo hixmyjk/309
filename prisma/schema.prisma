@@ -24,7 +24,7 @@ model User {
   blogPosts     BlogPost[]
   comments      Comment[]
   reports       Report[]
-  rating        Rating[]
+  ratings       Rating[]
 }
 
 model CodeTemplate {
@@ -74,12 +74,12 @@ model Comment {
   updatedAt DateTime @updatedAt
 
   // Relations
-  user   User     @relation(fields: [userId], references: [id])
-  userId Int
-  post   BlogPost @relation(fields: [postId], references: [id])
-  postId Int
-  Report Report[]
-  rating Rating[]
+  user    User     @relation(fields: [userId], references: [id])
+  userId  Int
+  post    BlogPost @relation(fields: [postId], references: [id])
+  postId  Int
+  Report  Report[]
+  ratings Rating[]
 
   //self-relation for replies
   parentComment   Comment?  @relation("CommentReplies", fields: [parentCommentId], references: [id])
